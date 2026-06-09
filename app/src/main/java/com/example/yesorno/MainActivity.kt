@@ -61,7 +61,7 @@ fun YesOrNoScreen() {
             if (answer == "ДА" || answer == "НЕТ")
                 72.sp
             else
-                25.sp,
+                22.sp,
             fontWeight =
                 if (answer == "ДА" || answer == "НЕТ")
                     FontWeight.Bold
