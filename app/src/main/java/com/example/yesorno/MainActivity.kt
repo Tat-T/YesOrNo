@@ -19,6 +19,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.yesorno.ui.theme.YesOrNoTheme
@@ -59,7 +61,18 @@ fun YesOrNoScreen() {
             if (answer == "ДА" || answer == "НЕТ")
                 72.sp
             else
-                25.sp
+                25.sp,
+            fontWeight =
+                if (answer == "ДА" || answer == "НЕТ")
+                    FontWeight.Bold
+                else
+                    FontWeight.Normal,
+            color =
+                when (answer) {
+                    "ДА" -> Color(0xFF00C853)   // зелёный
+                    "НЕТ" -> Color.Red          // красный
+                    else -> Color.Black         // остальные сообщения
+                }
         )
 
         Spacer(modifier = Modifier.height(30.dp))
