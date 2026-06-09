@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.yesorno.ui.theme.YesOrNoTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -53,7 +54,12 @@ fun YesOrNoScreen() {
 
         Text(
             text = answer,
-            style = MaterialTheme.typography.headlineLarge
+            style = MaterialTheme.typography.headlineLarge,
+            fontSize =
+            if (answer == "ДА" || answer == "НЕТ")
+                72.sp
+            else
+                25.sp
         )
 
         Spacer(modifier = Modifier.height(30.dp))
