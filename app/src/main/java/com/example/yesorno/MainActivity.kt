@@ -15,11 +15,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.yesorno.ui.theme.YesOrNoTheme
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
@@ -38,8 +41,9 @@ class MainActivity : ComponentActivity() {
 fun YesOrNoScreen() {
 
     var answer by remember {
-        mutableStateOf("Нажмите кнопку")
+        mutableStateOf("Задай вопрос")
     }
+    val scope = rememberCoroutineScope()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -56,7 +60,28 @@ fun YesOrNoScreen() {
 
         Button(
             onClick = {
-                answer = if (Random.nextBoolean()) "ДА" else "НЕТ"
+
+                scope.launch {
+
+                    // Стираем старый ответ
+                    answer = "думаю."
+
+                    // Ждём 1 секунду
+                    delay(1000)
+
+                    answer = "нет, я не думаю.."
+                    delay(1000)
+
+                    answer = "а нет, думаю..."
+                    delay(1000)
+
+                    // Показываем новый ответ
+                    answer =
+                        if (Random.nextBoolean())
+                            "ДА"
+                        else
+                            "НЕТ"
+                }
             }
         ) {
             Text("Получить ответ")
