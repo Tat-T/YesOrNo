@@ -27,6 +27,11 @@ import com.example.yesorno.ui.theme.YesOrNoTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.size
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,26 +59,33 @@ fun YesOrNoScreen() {
         verticalArrangement = Arrangement.Center
     ) {
 
-        Text(
-            text = answer,
-            style = MaterialTheme.typography.headlineLarge,
-            fontSize =
-            if (answer == "ДА" || answer == "НЕТ")
-                72.sp
-            else
-                22.sp,
-            fontWeight =
-                if (answer == "ДА" || answer == "НЕТ")
-                    FontWeight.Bold
-                else
-                    FontWeight.Normal,
-            color =
-                when (answer) {
-                    "ДА" -> Color(0xFF00C853)   // зелёный
-                    "НЕТ" -> Color.Red          // красный
-                    else -> Color.Black         // остальные сообщения
-                }
-        )
+        when (answer) {
+
+            "ДА" -> {
+                Image(
+                    painter = painterResource(id = R.drawable.yes),
+                    contentDescription = "Да",
+                    modifier = Modifier.size(220.dp),
+                    contentScale = ContentScale.Fit
+                )
+            }
+
+            "НЕТ" -> {
+                Image(
+                    painter = painterResource(id = R.drawable.no),
+                    contentDescription = "Нет",
+                    modifier = Modifier.size(220.dp),
+                    contentScale = ContentScale.Fit
+                )
+            }
+
+            else -> {
+                Text(
+                    text = answer,
+                    fontSize = 25.sp
+                )
+            }
+        }
 
         Spacer(modifier = Modifier.height(30.dp))
 
