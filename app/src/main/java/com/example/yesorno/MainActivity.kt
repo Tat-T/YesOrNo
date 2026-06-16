@@ -87,11 +87,25 @@ fun YesOrNoScreen() {
                     contentScale = ContentScale.Fit
                 )
             }
-
             else -> {
                 Text(
                     text = answer,
-                    fontSize = 25.sp
+                    fontSize = when (answer) {
+                        "Задай вопрос" -> 25.sp
+                        "ДА", "НЕТ" -> 72.sp
+                        else -> 18.sp
+                    },
+
+                    fontWeight = when (answer) {
+                        "ДА", "НЕТ" -> FontWeight.Bold
+                        else -> FontWeight.Normal
+                    },
+
+                    color = when (answer) {
+                        "ДА" -> Color(0xFF00C853)
+                        "НЕТ" -> Color.Red
+                        else -> Color.Black
+                    }
                 )
             }
         }
@@ -110,6 +124,7 @@ fun YesOrNoScreen() {
             onClick = {
 
                 scope.launch {
+
                     answer = "думаю."
                     delay(1000)
 

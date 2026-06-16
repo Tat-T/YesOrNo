@@ -9,7 +9,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.yesorno"
+        applicationId = "ru.taniayn.yesorno"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
