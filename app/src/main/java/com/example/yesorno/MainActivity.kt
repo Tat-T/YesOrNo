@@ -36,6 +36,11 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.draw.shadow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.graphicsLayer
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,15 +98,19 @@ fun YesOrNoScreen() {
 
         Spacer(modifier = Modifier.height(30.dp))
 
+        val interactionSource = remember { MutableInteractionSource() }
+
+        val isPressed by interactionSource.collectIsPressedAsState()
+
+        val scale by animateFloatAsState(
+            targetValue = if (isPressed) 0.96f else 1f,
+            label = "buttonScale"
+        )
         Button(
             onClick = {
 
                 scope.launch {
-
-                    // Стираем старый ответ
                     answer = "думаю."
-
-                    // Ждём 1 секунду
                     delay(1000)
 
                     answer = "нет, я не думаю.."
@@ -110,7 +119,6 @@ fun YesOrNoScreen() {
                     answer = "а нет, думаю..."
                     delay(1000)
 
-                    // Показываем новый ответ
                     answer =
                         if (Random.nextBoolean())
                             "ДА"
@@ -118,19 +126,25 @@ fun YesOrNoScreen() {
                             "НЕТ"
                 }
             },
+
+            interactionSource = interactionSource,
+
             modifier = Modifier
+                .shadow(
+                    elevation = 20.dp,
+                    shape = RoundedCornerShape(35.dp)
+                )
+                .graphicsLayer(
+                    scaleX = scale,
+                    scaleY = scale
+                )
                 .size(width = 220.dp, height = 70.dp),
 
             shape = RoundedCornerShape(35.dp),
 
             border = BorderStroke(
-                2.dp,
-                Color.Black
-            ),
-
-            elevation = ButtonDefaults.buttonElevation(
-                defaultElevation = 8.dp,
-                pressedElevation = 2.dp
+                width = 2.dp,
+                color = Color.Black
             )
 
         ) {
