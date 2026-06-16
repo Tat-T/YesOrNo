@@ -32,6 +32,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.draw.shadow
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,9 +117,27 @@ fun YesOrNoScreen() {
                         else
                             "НЕТ"
                 }
-            }
+            },
+            modifier = Modifier
+                .size(width = 220.dp, height = 70.dp),
+
+            shape = RoundedCornerShape(35.dp),
+
+            border = BorderStroke(
+                2.dp,
+                Color.Black
+            ),
+
+            elevation = ButtonDefaults.buttonElevation(
+                defaultElevation = 8.dp,
+                pressedElevation = 2.dp
+            )
+
         ) {
-            Text("Получить ответ")
+            Text(
+                text = "Получить ответ",
+                fontSize = 22.sp
+            )
         }
     }
 }
