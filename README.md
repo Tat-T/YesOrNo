@@ -1,24 +1,24 @@
-# 🎲 Да или Нет (YesOrNo)
+# Yes or No (YesOrNo)
 
-Простое Android-приложение для принятия решений.
+A simple Android app for decision making.
 
-Пользователь задаёт вопрос, нажимает кнопку и получает случайный ответ **«Да»** или **«Нет»** с небольшой анимацией ожидания.
-
----
-
-##  Возможности
-
-* случайная генерация ответа;
-* минималистичный интерфейс на Jetpack Compose;
-* отображение изображений вместо текста;
-* анимация ожидания перед ответом;
-* анимированная кнопка с эффектом нажатия;
-* поддержка современных версий Android;
-* не требует подключения к интернету.
+The user asks a question, presses a button and receives a random answer of **«Yes»** or **«No»** with a small wait animation.
 
 ---
 
-## 🛠️ Используемые технологии
+##  Possibilities
+
+* random response generation;
+* minimalist interface on Jetpack Compose;
+* displaying images instead of text;
+* wait animation before answer;
+* animated button with click effect;
+* support for modern versions of Android;
+* does not require internet connection.
+
+---
+
+## 🛠️ Technologies used
 
 * Kotlin
 * Jetpack Compose
@@ -28,29 +28,29 @@
 
 ---
 
-## 📸 Скриншоты
+## 📸 Screenshots
 
 <img src="app/src/screenshots/1.jpg" width="250"> <img src="app/src/screenshots/2.jpg" width="250"> <img src="app/src/screenshots/3.jpg" width="250"> <img src="app/src/screenshots/4.jpg" width="250"> <img src="app/src/screenshots/5.jpg" width="250"> <img src="app/src/screenshots/6.jpg" width="250">
 
 ---
 
-## 🚀 Сборка проекта
+## 🚀 Assembling the project
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/Tat-T/YesOrNo.git
 ```
 
-2. Откройте проект в Android Studio.
+2. Open the project in Android Studio.
 
-3. Дождитесь загрузки зависимостей Gradle.
+3. Wait for Gradle dependencies to download.
 
-4. Запустите приложение на эмуляторе или физическом устройстве.
+4. ЗRun the application on an emulator or physical device.
 
 ---
 
-## 📦 Требования
+## 📦 Requirements
 
 * Android Studio Meerkat или новее
 * JDK 11+
@@ -58,13 +58,13 @@ git clone https://github.com/Tat-T/YesOrNo.git
 
 ---
 
-## 📄 Лицензия
+## 📄 License
 
-Проект распространяется для ознакомления и обучения.
+The project is distributed for informational and educational purposes.
 
 ---
 
-## Автор
+## Author
 
 Tatyana Yantkova
 
