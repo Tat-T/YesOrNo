@@ -1,5 +1,7 @@
 # Yes or No (YesOrNo)
 
+# https://www.rustore.ru/catalog/app/ru.taniayn.yesorno
+
 A simple Android app for decision making.
 
 The user asks a question, presses a button and receives a random answer of **«Yes»** or **«No»** with a small wait animation.
